@@ -1,1 +1,225 @@
+---
+const reasons = [
+  {
+    icon: '🎓',
+    title: 'Expert Guidance',
+    description:
+      'Years of hands-on experience helping Nigerian students gain admission into competitive Master\'s programs in the UK and Canada.',
+  },
+  {
+    icon: '🌍',
+    title: 'UK & Canada Specialists',
+    description:
+      'We don\'t try to be everything to everyone. Our entire focus is on UK and Canada Master\'s admissions — deep expertise, not generic advice.',
+  },
+  {
+    icon: '💰',
+    title: 'Study Now, Pay Later',
+    description:
+      'Through our tuition loan partnerships, you can secure your admission without paying everything upfront. No collateral. No guarantor.',
+  },
+  {
+    icon: '🤝',
+    title: 'Personalized Support',
+    description:
+      'We treat every student like family. You get dedicated one-on-one guidance — not a ticket number in a queue.',
+  },
+  {
+    icon: '✅',
+    title: 'Proven Success',
+    description:
+      'Successful admissions across top UK and Canadian universities. Our track record speaks for itself.',
+  },
+  {
+    icon: '📦',
+    title: 'End-to-End Support',
+    description:
+      'We\'re with you from your first inquiry all the way to your arrival — application, funding, visa, and everything in between.',
+  },
+];
+---
 
+<section
+  id="why-us"
+  class="relative w-full section-gap overflow-hidden"
+>
+
+  <!-- BG -->
+  <div class="absolute inset-0 bg-brand-green-800/30 pointer-events-none"></div>
+  <div class="absolute top-0 left-0 right-0 h-px
+              bg-gradient-to-r from-transparent via-brand-gold-500/30
+              to-transparent pointer-events-none"></div>
+  <div class="absolute top-0 left-0 w-96 h-96 rounded-full
+              bg-brand-gold-500/5 blur-[120px] pointer-events-none"></div>
+
+  <div class="relative z-10 section-padding w-full">
+
+    <!-- Header -->
+    <div class="flex flex-col items-center text-center mb-16 md:mb-20">
+      <span class="section-label" id="why-label">Why AdmitWithEase</span>
+      <h2
+        id="why-heading"
+        class="section-heading gsap-fade-up max-w-xs sm:max-w-lg
+               md:max-w-2xl text-balance"
+      >
+        Why Students
+        <span class="gold-gradient"> Trust Us</span>
+      </h2>
+      <p
+        id="why-sub"
+        class="gsap-fade-up section-subtext mt-4 text-center"
+      >
+        We built this service around one belief —
+        every ambitious student deserves a real shot at a world-class education.
+      </p>
+    </div>
+
+    <!-- Reasons Grid -->
+    <div
+      id="why-grid"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+             gap-5 md:gap-6 max-w-6xl mx-auto"
+    >
+      {reasons.map((reason, i) => (
+        <div
+          class="why-card gsap-fade-up card-glass rounded-2xl p-6 md:p-7
+                 group relative overflow-hidden
+                 transition-all duration-500 ease-smooth
+                 hover:border-brand-gold-500/40
+                 hover:bg-white/[0.05]"
+          data-index={i}
+        >
+
+          <!-- Number watermark -->
+          <div
+            class="absolute top-4 right-5 font-heading text-6xl
+                   text-white/[0.03] font-bold select-none
+                   group-hover:text-brand-gold-500/5
+                   transition-colors duration-500"
+          >
+            {String(i + 1).padStart(2, '0')}
+          </div>
+
+          <!-- Icon -->
+          <div
+            class="relative z-10 w-12 h-12 rounded-xl mb-5
+                   bg-brand-gold-500/10 border border-brand-gold-500/20
+                   flex items-center justify-center text-2xl
+                   transition-all duration-300
+                   group-hover:scale-110
+                   group-hover:bg-brand-gold-500/20
+                   group-hover:border-brand-gold-500/50"
+          >
+            {reason.icon}
+          </div>
+
+          <!-- Content -->
+          <div class="relative z-10">
+            <h3
+              class="font-heading text-fluid-lg text-white font-semibold
+                     mb-3 leading-snug
+                     group-hover:text-brand-gold-300
+                     transition-colors duration-300"
+            >
+              {reason.title}
+            </h3>
+            <p class="font-body text-sm text-white/60 leading-relaxed">
+              {reason.description}
+            </p>
+          </div>
+
+          <!-- Hover bottom line -->
+          <div
+            class="absolute bottom-0 left-0 h-[2px] w-0
+                   bg-gradient-to-r from-brand-gold-500 to-brand-gold-300
+                   group-hover:w-full transition-all duration-500
+                   ease-smooth rounded-b-2xl"
+          ></div>
+
+        </div>
+      ))}
+    </div>
+
+    <!-- Trust badge -->
+    <div
+      id="why-badge"
+      class="gsap-fade-up flex flex-col sm:flex-row items-center
+             justify-center gap-4 mt-14 md:mt-16"
+    >
+      <div
+        class="card-glass rounded-2xl px-8 py-5
+               flex items-center gap-5"
+      >
+        <div
+          class="w-12 h-12 rounded-full bg-brand-gold-500/15
+                 border border-brand-gold-500/30
+                 flex items-center justify-center text-2xl flex-shrink-0"
+        >
+          🛡️
+        </div>
+        <div>
+          <p class="font-heading text-base text-white font-semibold">
+            Your Trusted Admission Partner
+          </p>
+          <p class="font-body text-xs text-white/50 mt-0.5">
+            Personalized · Professional · Proven
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('#why-label', {
+    opacity: 0,
+    y: 20,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#why-us',
+      start: 'top 80%',
+    },
+  });
+
+  gsap.from('#why-heading, #why-sub', {
+    opacity: 0,
+    y: 40,
+    duration: 0.9,
+    stagger: 0.15,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#why-heading',
+      start: 'top 85%',
+    },
+  });
+
+  gsap.from('.why-card', {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#why-grid',
+      start: 'top 80%',
+    },
+  });
+
+  gsap.from('#why-badge', {
+    opacity: 0,
+    y: 30,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#why-badge',
+      start: 'top 90%',
+    },
+  });
+</script>
