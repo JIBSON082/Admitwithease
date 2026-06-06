@@ -1,1 +1,266 @@
+---
+const testimonials = [
+  {
+    name: 'Adaeze Okonkwo',
+    program: 'MSc Data Science',
+    university: 'University of Kent',
+    country: '🇬🇧',
+    destination: 'United Kingdom',
+    quote:
+      'I had almost given up on studying abroad because of funding. AdmitWithEase connected me to a tuition loan with zero collateral and handled every single document. I am now living my dream in the UK.',
+    initial: 'A',
+  },
+  {
+    name: 'Emeka Nwosu',
+    program: 'MBA',
+    university: 'Northeastern University, Toronto',
+    country: '🇨🇦',
+    destination: 'Canada',
+    quote:
+      'The entire process felt overwhelming until I found AdmitWithEase. They treated me like family from day one. My visa was approved and I started my MBA programme without the financial stress I feared.',
+    initial: 'E',
+  },
+  {
+    name: 'Chisom Eze',
+    program: 'MSc International Business',
+    university: 'University of Liverpool',
+    country: '🇬🇧',
+    destination: 'United Kingdom',
+    quote:
+      'What stood out most was how personal the support was. I was never just a client. They guided me through my personal statement, proof of funds, and visa — all the way to my arrival in Liverpool.',
+    initial: 'C',
+  },
+  {
+    name: 'Tunde Badmus',
+    program: 'MSc Civil Engineering',
+    university: 'University of Plymouth',
+    country: '🇬🇧',
+    destination: 'United Kingdom',
+    quote:
+      'AdmitWithEase made what seemed impossible, possible. The study now pay later option was a game changer for me. I highly recommend them to any Nigerian student serious about studying abroad.',
+    initial: 'T',
+  },
+  {
+    name: 'Ngozi Obiora',
+    program: 'MSc Project Management',
+    university: 'University of Portsmouth',
+    country: '🇬🇧',
+    destination: 'United Kingdom',
+    quote:
+      'Professional, warm, and incredibly efficient. My admission was processed faster than I expected and the documentation support was thorough. I could not have done this without AdmitWithEase Global.',
+    initial: 'N',
+  },
+];
+---
 
+<section
+  id="testimonials"
+  class="relative w-full section-gap overflow-hidden"
+>
+
+  <!-- BG -->
+  <div class="absolute inset-0 bg-brand-green-900/50 pointer-events-none"></div>
+  <div class="absolute top-0 left-0 right-0 h-px
+              bg-gradient-to-r from-transparent via-brand-gold-500/30
+              to-transparent pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px
+              bg-gradient-to-r from-transparent via-brand-gold-500/30
+              to-transparent pointer-events-none"></div>
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full
+              bg-brand-gold-500/5 blur-[150px] pointer-events-none"></div>
+
+  <div class="relative z-10 section-padding w-full">
+
+    <!-- Header -->
+    <div class="flex flex-col items-center text-center mb-16 md:mb-20">
+      <span class="section-label" id="test-label">Student Results</span>
+      <h2
+        id="test-heading"
+        class="section-heading gsap-fade-up max-w-xs sm:max-w-lg
+               md:max-w-2xl text-balance"
+      >
+        Real Students.
+        <span class="gold-gradient"> Real Results.</span>
+      </h2>
+      <p
+        id="test-sub"
+        class="gsap-fade-up section-subtext mt-4 text-center"
+      >
+        These are the stories of students who trusted us
+        with their most important decision.
+      </p>
+    </div>
+
+    <!-- Testimonials grid -->
+    <div
+      id="test-grid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+             gap-5 md:gap-6 max-w-6xl mx-auto"
+    >
+      {testimonials.map((t, i) => (
+        <div
+          class={`test-card gsap-fade-up card-glass rounded-2xl p-6 md:p-7
+                  group relative overflow-hidden flex flex-col
+                  transition-all duration-500 ease-smooth
+                  hover:border-brand-gold-500/40
+                  hover:bg-white/[0.05]
+                  ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+          data-index={i}
+        >
+
+          <!-- Quote mark -->
+          <div
+            class="absolute top-4 right-5 font-heading text-7xl
+                   text-brand-gold-500/8 font-bold leading-none
+                   select-none group-hover:text-brand-gold-500/12
+                   transition-colors duration-500"
+          >
+            "
+          </div>
+
+          <!-- Destination badge -->
+          <div class="flex items-center gap-2 mb-5">
+            <span class="text-lg leading-none">{t.country}</span>
+            <span
+              class="font-body text-[10px] text-white/50
+                     tracking-[0.18em] uppercase"
+            >
+              {t.destination}
+            </span>
+          </div>
+
+          <!-- Quote -->
+          <blockquote
+            class="relative z-10 font-body text-sm text-white/70
+                   leading-relaxed flex-1 mb-6 italic"
+          >
+            "{t.quote}"
+          </blockquote>
+
+          <!-- Divider -->
+          <div
+            class="w-full h-px bg-gradient-to-r from-brand-gold-500/30
+                   via-brand-gold-500/10 to-transparent mb-5"
+          ></div>
+
+          <!-- Student info -->
+          <div class="flex items-center gap-3">
+
+            <!-- Avatar initial -->
+            <div
+              class="w-10 h-10 rounded-full flex-shrink-0
+                     bg-gradient-to-br from-brand-gold-500
+                     to-brand-gold-300 flex items-center justify-center
+                     font-heading text-brand-green-900 font-bold text-base"
+            >
+              {t.initial}
+            </div>
+
+            <div class="flex flex-col min-w-0">
+              <span
+                class="font-body text-sm font-semibold text-white
+                       truncate"
+              >
+                {t.name}
+              </span>
+              <span
+                class="font-body text-xs text-brand-gold-400/80
+                       truncate"
+              >
+                {t.program}
+              </span>
+              <span
+                class="font-body text-[10px] text-white/40
+                       truncate"
+              >
+                {t.university}
+              </span>
+            </div>
+
+          </div>
+
+          <!-- Bottom hover line -->
+          <div
+            class="absolute bottom-0 left-0 h-[2px] w-0
+                   bg-gradient-to-r from-brand-gold-500 to-brand-gold-300
+                   group-hover:w-full transition-all duration-500
+                   ease-smooth rounded-b-2xl"
+          ></div>
+
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom note -->
+    <div
+      id="test-note"
+      class="gsap-fade-up flex flex-col items-center
+             gap-4 mt-14 md:mt-16"
+    >
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-px bg-brand-gold-500/30"></div>
+        <span class="text-brand-gold-500 text-lg">★★★★★</span>
+        <div class="w-12 h-px bg-brand-gold-500/30"></div>
+      </div>
+      <p class="font-body text-xs text-white/35 text-center
+                tracking-wide max-w-sm">
+        Every testimonial above is from a real student
+        whose admission was processed by AdmitWithEase Global.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('#test-label', {
+    opacity: 0,
+    y: 20,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#testimonials',
+      start: 'top 80%',
+    },
+  });
+
+  gsap.from('#test-heading, #test-sub', {
+    opacity: 0,
+    y: 40,
+    duration: 0.9,
+    stagger: 0.15,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#test-heading',
+      start: 'top 85%',
+    },
+  });
+
+  gsap.from('.test-card', {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    stagger: 0.12,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#test-grid',
+      start: 'top 80%',
+    },
+  });
+
+  gsap.from('#test-note', {
+    opacity: 0,
+    y: 25,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#test-note',
+      start: 'top 90%',
+    },
+  });
+</script>
