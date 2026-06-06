@@ -1,1 +1,293 @@
+---
+const logoUrl = "https://res.cloudinary.com/dx3k7hbnc/image/upload/v1780761984/download_1_jmak4w.webp";
 
+const navLinks = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Destinations', href: '#destinations' },
+  { label: 'Why Us', href: '#why-us' },
+  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<!-- NAVBAR -->
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-smooth"
+>
+  <nav class="section-padding flex items-center justify-between h-16 md:h-20">
+
+    <!-- LEFT — Hamburger -->
+    <button
+      id="menu-btn"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      class="relative z-50 flex flex-col justify-center items-center w-10 h-10 gap-[6px] cursor-pointer group"
+    >
+      <span
+        id="line-1"
+        class="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-smooth origin-center"
+      ></span>
+      <span
+        id="line-2"
+        class="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-smooth"
+      ></span>
+      <span
+        id="line-3"
+        class="block w-4 h-[2px] bg-brand-gold-500 rounded-full transition-all duration-300 ease-smooth origin-center group-hover:w-6"
+      ></span>
+    </button>
+
+    <!-- CENTRE — Logo -->
+    <a
+      href="#home"
+      class="absolute left-1/2 -translate-x-1/2 z-50 flex items-center justify-center"
+      aria-label="AdmitWithEase Global — Home"
+    >
+      <img
+        src={logoUrl}
+        alt="AdmitWithEase Global"
+        width="48"
+        height="48"
+        class="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full
+               transition-transform duration-300 ease-smooth hover:scale-105"
+        loading="eager"
+        decoding="async"
+      />
+    </a>
+
+    <!-- RIGHT — CTA -->
+    <a
+      href="#contact"
+      class="btn-primary text-sm px-4 py-2 md:px-6 md:py-2.5"
+    >
+      <span>Apply Now</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="hidden sm:block"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+
+  </nav>
+</header>
+
+<!-- MOBILE MENU OVERLAY -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-40 flex flex-col items-center justify-center
+         bg-brand-green-900/98 backdrop-blur-md
+         pointer-events-none opacity-0"
+  aria-hidden="true"
+>
+  <!-- Decorative gold orb -->
+  <div
+    class="absolute top-1/4 right-1/4 w-64 h-64 rounded-full
+           bg-brand-gold-500/5 blur-3xl pointer-events-none"
+  ></div>
+
+  <nav class="flex flex-col items-center gap-8">
+    {navLinks.map((link, i) => (
+      <a
+        href={link.href}
+        data-menu-link
+        data-index={i}
+        class="menu-link font-heading text-fluid-2xl text-white/90
+               hover:text-brand-gold-500 transition-colors duration-300
+               tracking-wide opacity-0 translate-y-8"
+        style={`transition-delay: ${i * 60}ms`}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+
+  <!-- Bottom contact hint -->
+  <div class="absolute bottom-12 flex items-center gap-3 opacity-0" id="menu-contact-hint">
+    <div class="w-8 h-[1px] bg-brand-gold-500"></div>
+    <span class="font-body text-sm text-white/50 tracking-widest uppercase">
+      +234 814 214 2533
+    </span>
+    <div class="w-8 h-[1px] bg-brand-gold-500"></div>
+  </div>
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const navbar = document.getElementById('navbar')!;
+  const menuBtn = document.getElementById('menu-btn')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  const line1 = document.getElementById('line-1')!;
+  const line2 = document.getElementById('line-2')!;
+  const line3 = document.getElementById('line-3')!;
+  const menuLinks = document.querySelectorAll('.menu-link');
+  const menuContactHint = document.getElementById('menu-contact-hint')!;
+
+  let isOpen = false;
+  let isScrolled = false;
+
+  // ── Scroll: transparent → solid ──────────────────────────
+  const handleScroll = () => {
+    const scrolled = window.scrollY > 80;
+    if (scrolled !== isScrolled) {
+      isScrolled = scrolled;
+      if (scrolled) {
+        gsap.to(navbar, {
+          backgroundColor: 'rgba(10, 31, 19, 0.97)',
+          backdropFilter: 'blur(20px)',
+          borderBottom: '1px solid rgba(201, 149, 42, 0.15)',
+          duration: 0.4,
+          ease: 'power2.out',
+        });
+      } else {
+        gsap.to(navbar, {
+          backgroundColor: 'rgba(0,0,0,0)',
+          backdropFilter: 'blur(0px)',
+          borderBottom: '1px solid rgba(0,0,0,0)',
+          duration: 0.4,
+          ease: 'power2.out',
+        });
+      }
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  // ── Hamburger → X animation ───────────────────────────────
+  const openMenu = () => {
+    isOpen = true;
+    menuBtn.setAttribute('aria-expanded', 'true');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+
+    // Hamburger morphs to X
+    gsap.to(line1, {
+      rotation: 45,
+      y: 8,
+      width: '24px',
+      duration: 0.35,
+      ease: 'power2.inOut',
+    });
+    gsap.to(line2, {
+      opacity: 0,
+      scaleX: 0,
+      duration: 0.2,
+      ease: 'power2.in',
+    });
+    gsap.to(line3, {
+      rotation: -45,
+      y: -8,
+      width: '24px',
+      backgroundColor: '#ffffff',
+      duration: 0.35,
+      ease: 'power2.inOut',
+    });
+
+    // Menu overlay in
+    gsap.to(mobileMenu, {
+      opacity: 1,
+      pointerEvents: 'auto',
+      duration: 0.4,
+      ease: 'power2.out',
+    });
+
+    // Stagger links in
+    gsap.to(menuLinks, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.07,
+      ease: 'power3.out',
+      delay: 0.15,
+    });
+
+    // Contact hint
+    gsap.to(menuContactHint, {
+      opacity: 1,
+      duration: 0.5,
+      delay: 0.55,
+      ease: 'power2.out',
+    });
+
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeMenu = () => {
+    isOpen = false;
+    menuBtn.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+
+    // X morphs back to hamburger
+    gsap.to(line1, {
+      rotation: 0,
+      y: 0,
+      duration: 0.35,
+      ease: 'power2.inOut',
+    });
+    gsap.to(line2, {
+      opacity: 1,
+      scaleX: 1,
+      duration: 0.25,
+      delay: 0.1,
+      ease: 'power2.out',
+    });
+    gsap.to(line3, {
+      rotation: 0,
+      y: 0,
+      width: '16px',
+      backgroundColor: '#c9952a',
+      duration: 0.35,
+      ease: 'power2.inOut',
+    });
+
+    // Menu out
+    gsap.to(menuLinks, {
+      opacity: 0,
+      y: 8,
+      duration: 0.25,
+      stagger: 0.03,
+      ease: 'power2.in',
+    });
+
+    gsap.to(menuContactHint, {
+      opacity: 0,
+      duration: 0.2,
+      ease: 'power2.in',
+    });
+
+    gsap.to(mobileMenu, {
+      opacity: 0,
+      pointerEvents: 'none',
+      duration: 0.35,
+      delay: 0.15,
+      ease: 'power2.in',
+    });
+
+    document.body.style.overflow = '';
+  };
+
+  menuBtn.addEventListener('click', () => {
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Close menu when a nav link is clicked
+  menuLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) closeMenu();
+  });
+</script>
