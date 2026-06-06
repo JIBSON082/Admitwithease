@@ -1,248 +1,95 @@
 ---
-const videoUrl = "https://res.cloudinary.com/dx3k7hbnc/video/upload/q_auto/f_auto/v1780761104/Admitwithease_Hero_p0xtxi.mp4";
 ---
+<section id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style="background: radial-gradient(ellipse at 70% 50%, #134023 0%, #0d2b1a 40%, #0a1f13 100%);">
 
-<!-- HERO SECTION -->
-<section
-  id="home"
-  class="relative min-h-screen w-full flex items-center justify-center overflow-hidden gradient-hero"
->
+  <div class="absolute inset-0 gold-grid pointer-events-none"></div>
 
-  <!-- Background decorative orbs -->
-  <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full
-              bg-brand-gold-500/5 blur-[120px] pointer-events-none"></div>
-  <div class="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full
-              bg-brand-green-600/20 blur-[100px] pointer-events-none"></div>
+  <div class="absolute top-1/4 right-1/4 w-96 h-96 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(201,149,42,0.08) 0%, transparent 70%); filter: blur(40px);"></div>
+  <div class="absolute bottom-1/3 left-1/3 w-64 h-64 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(19,64,35,0.4) 0%, transparent 70%); filter: blur(60px);"></div>
 
-  <!-- Subtle grid overlay -->
-  <div
-    class="absolute inset-0 pointer-events-none opacity-[0.03]"
-    style="background-image: linear-gradient(rgba(201,149,42,0.5) 1px, transparent 1px),
-           linear-gradient(90deg, rgba(201,149,42,0.5) 1px, transparent 1px);
-           background-size: 60px 60px;"
-  ></div>
+  <div class="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-8 lg:px-12 pt-28 sm:pt-32 pb-16 flex flex-col items-center text-center">
 
-  <!-- HERO CONTENT -->
-  <div class="relative z-10 section-padding w-full pt-24 pb-16
-              flex flex-col items-center text-center gap-8 md:gap-10">
-
-    <!-- Label -->
-    <div
-      id="hero-label"
-      class="gsap-fade-in flex items-center gap-3"
-    >
-      <div class="w-8 h-[1px] bg-brand-gold-500"></div>
-      <span class="section-label mb-0">Study Abroad, The Easy Way</span>
-      <div class="w-8 h-[1px] bg-brand-gold-500"></div>
+    <div id="hero-label" class="section-label mb-6 gsap-hidden">
+      Study Abroad, The Easy Way
     </div>
 
-    <!-- Headline -->
-    <div class="flex flex-col items-center gap-2 md:gap-3">
-      <div class="gsap-line-reveal">
-        <span
-          id="hero-line-1"
-          class="block font-heading text-fluid-3xl md:text-fluid-4xl
-                 text-white font-semibold leading-tight tracking-tight"
-        >
-          Your Dream of
-        </span>
-      </div>
-      <div class="gsap-line-reveal">
-        <span
-          id="hero-line-2"
-          class="block font-heading text-fluid-3xl md:text-fluid-4xl
-                 font-semibold leading-tight tracking-tight gold-gradient"
-        >
-          Studying Abroad
-        </span>
-      </div>
-      <div class="gsap-line-reveal">
-        <span
-          id="hero-line-3"
-          class="block font-heading text-fluid-3xl md:text-fluid-4xl
-                 text-white font-semibold leading-tight tracking-tight"
-        >
-          Starts Here
-        </span>
-      </div>
-    </div>
+    <h1 class="section-heading mb-6 w-full">
+      <span id="hero-line1" class="block fluid-4xl gsap-hidden" style="clip-path: inset(0 0 100% 0)">Your Dream of</span>
+      <span id="hero-line2" class="block fluid-4xl gold-text gsap-hidden" style="clip-path: inset(0 0 100% 0)">Studying Abroad</span>
+      <span id="hero-line3" class="block fluid-4xl gsap-hidden" style="clip-path: inset(0 0 100% 0)">Starts Here</span>
+    </h1>
 
-    <!-- Subtext -->
-    <p
-      id="hero-sub"
-      class="gsap-fade-up section-subtext text-center mx-auto
-             max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl"
-    >
-      We help ambitious Nigerian students secure
-      <span class="text-brand-gold-400 font-medium">Master's admission</span>
-      in the UK and Canada — with tuition loan support,
-      <span class="text-brand-gold-400 font-medium">zero collateral</span>,
-      and zero stress.
+    <p id="hero-sub" class="fluid-base text-white/70 max-w-2xl leading-relaxed mb-8 gsap-hidden">
+      Your gateway to <strong class="text-white/90">Master's admission</strong> in the
+      <strong class="text-white/90">UK and Canada</strong> — with personalised guidance,
+      end-to-end support, and our exclusive <strong class="text-brand-gold-500">Study Now, Pay Later</strong> tuition loan.
+      Zero collateral. Zero guarantor.
     </p>
 
-    <!-- CTA Buttons -->
-    <div
-      id="hero-ctas"
-      class="gsap-fade-up flex flex-col sm:flex-row items-center
-             gap-4 sm:gap-5 w-full sm:w-auto"
-    >
-      <a href="#contact" class="btn-primary w-full sm:w-auto text-sm md:text-base px-7 py-3.5">
-        Start Your Application
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-             viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-      <a href="#about" class="btn-outline w-full sm:w-auto text-sm md:text-base px-7 py-3.5">
-        Learn More
-      </a>
+    <div id="hero-ctas" class="flex flex-col sm:flex-row gap-4 mb-10 gsap-hidden">
+      <a href="#contact" class="btn-primary text-sm sm:text-base px-6 sm:px-8">Start Your Application</a>
+      <a href="#about" class="btn-outline text-sm sm:text-base px-6 sm:px-8">Learn More</a>
     </div>
 
-    <!-- Destination Pills -->
-    <div
-      id="hero-pills"
-      class="gsap-fade-up flex items-center gap-3 flex-wrap justify-center"
-    >
-      <div class="flex items-center gap-2 card-glass rounded-full px-4 py-2">
-        <span class="text-base leading-none">🇬🇧</span>
-        <span class="font-body text-xs font-medium text-white/80 tracking-wide">
-          United Kingdom
-        </span>
-      </div>
-      <div class="w-1 h-1 rounded-full bg-brand-gold-500/50"></div>
-      <div class="flex items-center gap-2 card-glass rounded-full px-4 py-2">
-        <span class="text-base leading-none">🇨🇦</span>
-        <span class="font-body text-xs font-medium text-white/80 tracking-wide">
-          Canada
-        </span>
-      </div>
-      <div class="w-1 h-1 rounded-full bg-brand-gold-500/50"></div>
-      <div class="flex items-center gap-2 card-glass rounded-full px-4 py-2">
-        <span class="text-brand-gold-400 text-xs font-semibold">
-          Master's Only
-        </span>
-      </div>
+    <div id="hero-pills" class="flex flex-wrap justify-center gap-3 mb-12 gsap-hidden">
+      <span class="glass-card rounded-full px-4 py-2 text-xs sm:text-sm text-white/80 flex items-center gap-2">🇬🇧 United Kingdom</span>
+      <span class="glass-card rounded-full px-4 py-2 text-xs sm:text-sm text-white/80 flex items-center gap-2">🇨🇦 Canada</span>
+      <span class="glass-card rounded-full px-4 py-2 text-xs sm:text-sm text-brand-gold-500 flex items-center gap-2 border border-brand-gold-500/30">✦ Master's Only</span>
     </div>
 
-    <!-- Video Block -->
-    <div
-      id="hero-video-block"
-      class="gsap-fade-up w-full max-w-xs sm:max-w-sm md:max-w-md
-             lg:max-w-lg mt-2"
-    >
-      <!-- Video Thumbnail / Player -->
+    <div id="hero-video-block" class="w-full max-w-xl gsap-hidden">
       <div
         id="video-trigger"
-        class="relative rounded-2xl overflow-hidden cursor-pointer
-               card-glass border border-brand-gold-500/20
-               group transition-transform duration-500 ease-smooth
-               hover:scale-[1.02] hover:border-brand-gold-500/40"
+        class="relative rounded-2xl overflow-hidden cursor-pointer group"
+        style="background: linear-gradient(135deg, #134023 0%, #0a1f13 100%); aspect-ratio: 16/9; border: 1px solid rgba(201,149,42,0.2);"
         role="button"
-        aria-label="Play AdmitWithEase introduction video"
+        aria-label="Play video"
         tabindex="0"
       >
-        <!-- Poster frame — dark gradient placeholder -->
-        <div
-          class="w-full aspect-video bg-gradient-to-br
-                 from-brand-green-700 to-brand-green-900
-                 flex items-center justify-center"
-        >
-          <!-- Play button -->
-          <div
-            id="play-btn"
-            class="relative flex items-center justify-center
-                   w-16 h-16 md:w-20 md:h-20 rounded-full
-                   bg-brand-gold-500 text-brand-green-900
-                   shadow-[0_0_40px_rgba(201,149,42,0.4)]
-                   transition-all duration-300 ease-smooth
-                   group-hover:scale-110
-                   group-hover:shadow-[0_0_60px_rgba(201,149,42,0.6)]"
-          >
-            <!-- Pulse ring -->
-            <div class="absolute inset-0 rounded-full bg-brand-gold-500/30
-                        animate-ping"></div>
-            <!-- Play icon -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="ml-1"
-            >
-              <polygon points="5 3 19 12 5 21 5 3"/>
-            </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <div class="relative flex items-center justify-center mb-3">
+            <span class="absolute inline-flex w-16 h-16 rounded-full opacity-40" style="background: rgba(201,149,42,0.3); animation: pingGold 2s cubic-bezier(0,0,0.2,1) infinite;"></span>
+            <div class="relative z-10 w-14 h-14 rounded-full flex items-center justify-center border-2 border-brand-gold-500 group-hover:scale-110 transition-transform duration-300" style="background: rgba(201,149,42,0.15);">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M6 4l12 6-12 6V4z" fill="#c9952a"/>
+              </svg>
+            </div>
           </div>
-
-          <!-- Label below play btn -->
-          <div class="absolute bottom-4 left-0 right-0 flex justify-center">
-            <span class="font-body text-xs text-white/60 tracking-widest uppercase">
-              Watch Our Story
-            </span>
-          </div>
+          <span class="text-white/60 text-xs tracking-widest uppercase font-inter">Watch Our Story</span>
         </div>
+        <div class="absolute top-3 left-3 w-6 h-6 border-t border-l border-brand-gold-500/30 rounded-tl"></div>
+        <div class="absolute top-3 right-3 w-6 h-6 border-t border-r border-brand-gold-500/30 rounded-tr"></div>
+        <div class="absolute bottom-3 left-3 w-6 h-6 border-b border-l border-brand-gold-500/30 rounded-bl"></div>
+        <div class="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-brand-gold-500/30 rounded-br"></div>
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div
-      id="hero-scroll"
-      class="gsap-fade-in flex flex-col items-center gap-2 mt-2"
-    >
-      <span class="font-body text-[10px] text-white/30 tracking-[0.25em] uppercase">
-        Scroll
-      </span>
-      <div class="w-[1px] h-8 bg-gradient-to-b from-brand-gold-500/60 to-transparent
-                  animate-bounce"></div>
+    <div id="scroll-indicator" class="mt-10 flex flex-col items-center gap-2 gsap-hidden">
+      <span class="text-white/30 text-xs tracking-widest uppercase font-inter">Scroll to explore</span>
+      <div class="w-5 h-8 border border-white/20 rounded-full flex items-start justify-center p-1">
+        <div class="w-1 h-2 bg-brand-gold-500/60 rounded-full" style="animation: bounceSlow 2s ease-in-out infinite;"></div>
+      </div>
     </div>
-
   </div>
 </section>
 
-<!-- VIDEO LIGHTBOX -->
-<div
-  id="video-lightbox"
-  class="fixed inset-0 z-[100] flex items-center justify-center
-         bg-black/95 backdrop-blur-sm
-         opacity-0 pointer-events-none"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Video player"
->
-  <!-- Close button -->
-  <button
-    id="lightbox-close"
-    aria-label="Close video"
-    class="absolute top-4 right-4 md:top-6 md:right-6
-           w-10 h-10 flex items-center justify-center
-           rounded-full bg-white/10 text-white
-           hover:bg-brand-gold-500 hover:text-brand-green-900
-           transition-all duration-300 ease-smooth z-10 cursor-pointer"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M18 6 6 18M6 6l12 12"/>
-    </svg>
-  </button>
-
-  <!-- Video container — preserves aspect ratio, never stretches -->
-  <div
-    id="lightbox-content"
-    class="relative w-full max-w-[95vw] md:max-w-[85vw] lg:max-w-5xl
-           mx-4 rounded-2xl overflow-hidden
-           shadow-[0_0_80px_rgba(201,149,42,0.15)]
-           scale-95"
-  >
-    <div class="relative w-full aspect-video bg-black">
+<div id="video-lightbox" role="dialog" aria-modal="true" aria-label="Video player">
+  <div id="lightbox-backdrop" class="absolute inset-0"></div>
+  <div id="lightbox-inner" class="relative z-10 w-full max-w-4xl mx-4" style="transform: scale(0.8); opacity: 0;">
+    <button id="lightbox-close" aria-label="Close video" class="absolute -top-10 right-0 text-white/70 hover:text-white flex items-center gap-2 text-sm font-inter transition-colors">
+      <span>Close</span>
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M2 2L16 16M16 2L2 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div class="rounded-xl overflow-hidden" style="aspect-ratio: 16/9; background:#000;">
       <video
-        id="lightbox-video"
-        src={videoUrl}
-        class="absolute inset-0 w-full h-full object-contain"
-        playsinline
+        id="hero-video"
+        src="https://res.cloudinary.com/dx3k7hbnc/video/upload/q_auto/f_auto/v1780761104/Admitwithease_Hero_p0xtxi.mp4"
         preload="none"
-        tabindex="-1"
+        controls
+        playsinline
+        class="w-full h-full object-contain"
       ></video>
     </div>
   </div>
@@ -250,123 +97,48 @@ const videoUrl = "https://res.cloudinary.com/dx3k7hbnc/video/upload/q_auto/f_aut
 
 <script>
   import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  gsap.registerPlugin(ScrollTrigger);
+  const tl = gsap.timeline({ delay: 0.3 });
 
-  // ── Hero entrance animations ──────────────────────────────
-  const tl = gsap.timeline({ delay: 0.2 });
+  tl.to('#hero-label', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+    .to('#hero-line1', { clipPath: 'inset(0 0 0% 0)', opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.2')
+    .to('#hero-line2', { clipPath: 'inset(0 0 0% 0)', opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.5')
+    .to('#hero-line3', { clipPath: 'inset(0 0 0% 0)', opacity: 1, duration: 0.7, ease: 'power3.out' }, '-=0.5')
+    .to('#hero-sub', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3')
+    .to('#hero-ctas', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+    .to('#hero-pills', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.2')
+    .to('#hero-video-block', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.2')
+    .to('#scroll-indicator', { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.2');
 
-  tl.to('#hero-label', {
-    opacity: 1,
-    duration: 0.8,
-    ease: 'power2.out',
-  })
-  .to('#hero-line-1 span, #hero-line-2 span, #hero-line-3 span', {
-    y: 0,
-    duration: 0.9,
-    stagger: 0.12,
-    ease: 'power4.out',
-  }, '-=0.4')
-  .to('#hero-sub', {
-    opacity: 1,
-    y: 0,
-    duration: 0.7,
-    ease: 'power3.out',
-  }, '-=0.5')
-  .to('#hero-ctas', {
-    opacity: 1,
-    y: 0,
-    duration: 0.7,
-    ease: 'power3.out',
-  }, '-=0.5')
-  .to('#hero-pills', {
-    opacity: 1,
-    y: 0,
-    duration: 0.6,
-    ease: 'power3.out',
-  }, '-=0.4')
-  .to('#hero-video-block', {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    ease: 'power3.out',
-  }, '-=0.4')
-  .to('#hero-scroll', {
-    opacity: 1,
-    duration: 0.6,
-    ease: 'power2.out',
-  }, '-=0.3');
-
-  // ── Video Lightbox ────────────────────────────────────────
-  const videoTrigger = document.getElementById('video-trigger')!;
   const lightbox = document.getElementById('video-lightbox')!;
-  const lightboxContent = document.getElementById('lightbox-content')!;
-  const lightboxClose = document.getElementById('lightbox-close')!;
-  const lightboxVideo = document.getElementById('lightbox-video') as HTMLVideoElement;
+  const lightboxInner = document.getElementById('lightbox-inner')!;
+  const video = document.getElementById('hero-video') as HTMLVideoElement;
+  const videoTrigger = document.getElementById('video-trigger')!;
+  const closeBtn = document.getElementById('lightbox-close')!;
+  const backdrop = document.getElementById('lightbox-backdrop')!;
 
-  const openLightbox = () => {
-    lightbox.style.pointerEvents = 'auto';
-    document.body.style.overflow = 'hidden';
+  function openLightbox() {
+    lightbox.classList.add('active');
+    gsap.to(lightboxInner, { scale: 1, opacity: 1, duration: 0.4, ease: 'power3.out' });
+    video.play().catch(() => {});
+  }
 
-    gsap.to(lightbox, {
-      opacity: 1,
-      duration: 0.35,
-      ease: 'power2.out',
-    });
-
-    gsap.to(lightboxContent, {
-      scale: 1,
-      duration: 0.45,
-      ease: 'power3.out',
-      delay: 0.1,
+  function closeLightbox() {
+    gsap.to(lightboxInner, {
+      scale: 0.85, opacity: 0, duration: 0.3, ease: 'power2.in',
       onComplete: () => {
-        lightboxVideo.play().catch(() => {});
-      },
+        lightbox.classList.remove('active');
+        video.pause();
+        video.currentTime = 0;
+      }
     });
-  };
+  }
 
-  const closeLightbox = () => {
-    lightboxVideo.pause();
-    lightboxVideo.currentTime = 0;
-    document.body.style.overflow = '';
-
-    gsap.to(lightboxContent, {
-      scale: 0.95,
-      duration: 0.3,
-      ease: 'power2.in',
-    });
-
-    gsap.to(lightbox, {
-      opacity: 0,
-      duration: 0.35,
-      ease: 'power2.in',
-      delay: 0.05,
-      onComplete: () => {
-        lightbox.style.pointerEvents = 'none';
-      },
-    });
-  };
-
-  // Open on click or Enter key
   videoTrigger.addEventListener('click', openLightbox);
-  videoTrigger.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      openLightbox();
-    }
-  });
-
-  // Close on button
-  lightboxClose.addEventListener('click', closeLightbox);
-
-  // Close on backdrop click
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  // Close on Escape
+  videoTrigger.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') openLightbox(); });
+  closeBtn.addEventListener('click', closeLightbox);
+  backdrop.addEventListener('click', closeLightbox);
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
   });
 </script>
