@@ -3,203 +3,87 @@ const services = [
   {
     icon: '🏛️',
     title: 'University Application',
-    description:
-      'We identify the right universities that match your academic profile, career goals, and budget — then handle the full application process on your behalf.',
+    desc: 'We handle your entire application — from shortlisting the right universities to submitting a compelling, complete application package.',
   },
   {
     icon: '💰',
     title: 'Tuition & Living Expense Loan',
-    description:
-      'We connect you to trusted financial partners who provide tuition and living expense loans with no collateral and no guarantor required. Study now, pay later.',
+    desc: 'Our exclusive Study Now, Pay Later loan covers tuition and living costs. Zero collateral, zero guarantor — just your ambition.',
   },
   {
     icon: '📋',
     title: 'Proof of Funds Support',
-    description:
-      'We help you navigate the proof of funds requirement for Canadian universities and UK visa applications legally and efficiently through our financial partner network.',
+    desc: 'We guide you through proof of funds documentation so your application meets every financial requirement without stress.',
   },
   {
     icon: '✈️',
     title: 'Visa Guidance',
-    description:
-      'Step-by-step support through the UK Student Visa and Canadian Study Permit processes — from document preparation to application submission.',
+    desc: 'UK Student Visa or Canadian Study Permit — we walk you through every requirement, document, and appointment step by step.',
   },
   {
     icon: '✍️',
     title: 'Personal Statement Support',
-    description:
-      'We craft compelling, authentic personal statements that tell your story and align with what top universities are looking for.',
+    desc: 'Your story told compellingly. Our experts help craft a personal statement that stands out and speaks to admissions committees.',
   },
   {
     icon: '📁',
     title: 'Documentation Support',
-    description:
-      'From transcripts to reference letters — we guide you on every document needed and help you put together a clean, complete application package.',
+    desc: 'From transcripts to references and supporting letters — we ensure every document is in order, properly formatted, and submission-ready.',
   },
 ];
 ---
+<section id="services" class="relative py-24 sm:py-32 overflow-hidden" style="background:#0a1f13;">
+  <div class="absolute inset-0 gold-grid pointer-events-none"></div>
 
-<section
-  id="services"
-  class="relative w-full section-gap overflow-hidden"
->
-
-  <!-- Top divider -->
-  <div class="absolute top-0 left-0 right-0 h-px
-              bg-gradient-to-r from-transparent via-brand-gold-500/30
-              to-transparent pointer-events-none"></div>
-
-  <!-- Background orb -->
-  <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full
-              bg-brand-gold-500/5 blur-[120px] pointer-events-none"></div>
-
-  <div class="relative z-10 section-padding w-full">
-
-    <!-- Header -->
-    <div class="flex flex-col items-center text-center mb-16 md:mb-20">
-      <span class="section-label" id="services-label">What We Offer</span>
-      <h2
-        id="services-heading"
-        class="section-heading gsap-fade-up max-w-xs sm:max-w-lg
-               md:max-w-2xl text-balance"
-      >
-        Everything You Need to
-        <span class="gold-gradient"> Study Abroad</span>
-        — Under One Roof
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="text-center mb-16">
+      <div id="svc-label" class="section-label justify-center mb-4 gsap-hidden">What We Do</div>
+      <h2 id="svc-heading" class="section-heading fluid-3xl gsap-hidden">
+        Everything You Need to<br/>
+        <span class="gold-text">Get Admitted</span>
       </h2>
-      <p
-        id="services-sub"
-        class="gsap-fade-up section-subtext mt-4 text-center"
-      >
-        From your first application to your first day on campus —
-        we handle every step with precision and care.
+      <p id="svc-sub" class="fluid-base text-white/60 max-w-2xl mx-auto mt-4 leading-relaxed gsap-hidden">
+        From the first enquiry to the day you board your flight — we've built a complete suite of services
+        to make your Master's dream a reality.
       </p>
     </div>
 
-    <!-- Services Grid -->
-    <div
-      id="services-grid"
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-             gap-5 md:gap-6 max-w-6xl mx-auto"
-    >
-      {services.map((service, i) => (
-        <div
-          class="service-card gsap-fade-up card-glass rounded-2xl p-6 md:p-7
-                 group cursor-default relative overflow-hidden
-                 transition-all duration-500 ease-smooth
-                 hover:border-brand-gold-500/40
-                 hover:bg-white/[0.06]"
-          data-index={i}
-        >
-          <!-- Hover glow -->
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100
-                      transition-opacity duration-500
-                      bg-gradient-to-br from-brand-gold-500/5 to-transparent
-                      rounded-2xl pointer-events-none"></div>
-
-          <!-- Icon -->
-          <div
-            class="relative z-10 w-12 h-12 rounded-xl mb-5
-                   bg-brand-gold-500/10 border border-brand-gold-500/20
-                   flex items-center justify-center text-2xl
-                   transition-transform duration-300
-                   group-hover:scale-110 group-hover:border-brand-gold-500/50"
-          >
-            {service.icon}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+      {services.map((svc, i) => (
+        <div class="svc-card glass-card rounded-2xl p-6 sm:p-7 relative overflow-hidden group cursor-default gsap-hidden" data-index={i}>
+          <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+            style="background: radial-gradient(ellipse at 50% 0%, rgba(201,149,42,0.07) 0%, transparent 70%);"></div>
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative z-10 group-hover:scale-110 transition-transform duration-300"
+            style="background: rgba(201,149,42,0.1); border: 1px solid rgba(201,149,42,0.2);">
+            <span class="text-2xl">{svc.icon}</span>
           </div>
-
-          <!-- Content -->
-          <div class="relative z-10">
-            <h3
-              class="font-heading text-fluid-lg text-white font-semibold
-                     mb-3 leading-snug group-hover:text-brand-gold-300
-                     transition-colors duration-300"
-            >
-              {service.title}
-            </h3>
-            <p class="font-body text-sm text-white/60 leading-relaxed">
-              {service.description}
-            </p>
-          </div>
-
-          <!-- Bottom accent line -->
-          <div
-            class="absolute bottom-0 left-0 h-[2px] w-0
-                   bg-gradient-to-r from-brand-gold-500 to-brand-gold-300
-                   group-hover:w-full transition-all duration-500
-                   ease-smooth rounded-b-2xl"
-          ></div>
+          <h3 class="font-cormorant text-xl font-semibold text-white mb-2 relative z-10 group-hover:text-brand-gold-400 transition-colors duration-300">
+            {svc.title}
+          </h3>
+          <p class="text-white/55 fluid-sm leading-relaxed relative z-10">{svc.desc}</p>
+          <div class="card-accent-line"></div>
         </div>
       ))}
     </div>
 
-    <!-- Bottom CTA -->
-    <div
-      id="services-cta"
-      class="gsap-fade-up flex justify-center mt-14 md:mt-16"
-    >
-      <a href="#contact" class="btn-primary">
-        Start Your Journey
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-             viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
+    <div id="svc-cta" class="text-center mt-14 gsap-hidden">
+      <a href="#contact" class="btn-primary inline-flex text-sm sm:text-base">Start Your Journey →</a>
     </div>
-
   </div>
 </section>
+
+<div class="section-divider"></div>
 
 <script>
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('#services-label', {
-    opacity: 0,
-    y: 20,
-    duration: 0.7,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '#services',
-      start: 'top 80%',
-    },
-  });
+  const st = { trigger: '#services', start: 'top 80%' };
 
-  gsap.from('#services-heading, #services-sub', {
-    opacity: 0,
-    y: 40,
-    duration: 0.9,
-    stagger: 0.15,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '#services-heading',
-      start: 'top 85%',
-    },
-  });
-
-  gsap.from('.service-card', {
-    opacity: 0,
-    y: 50,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '#services-grid',
-      start: 'top 80%',
-    },
-  });
-
-  gsap.from('#services-cta', {
-    opacity: 0,
-    y: 30,
-    duration: 0.7,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '#services-cta',
-      start: 'top 90%',
-    },
-  });
+  gsap.to('#svc-label',   { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', scrollTrigger: st });
+  gsap.to('#svc-heading', { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', scrollTrigger: st, delay: 0.1 });
+  gsap.to('#svc-sub',     { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', scrollTrigger: st, delay: 0.2 });
+  gsap.to('.svc-card',    { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.1, delay: 0.3, scrollTrigger: st });
+  gsap.to('#svc-cta',     { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', scrollTrigger: st, delay: 0.9 });
 </script>
