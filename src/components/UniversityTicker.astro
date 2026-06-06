@@ -1,1 +1,221 @@
+---
+const universities = [
+  { name: 'University of Kent', flag: '🇬🇧', country: 'UK' },
+  { name: 'Northeastern University', flag: '🇨🇦', country: 'Canada' },
+  { name: 'University of Liverpool', flag: '🇬🇧', country: 'UK' },
+  { name: 'University of Plymouth', flag: '🇬🇧', country: 'UK' },
+  { name: 'University of Portsmouth', flag: '🇬🇧', country: 'UK' },
+];
 
+// Duplicate for seamless infinite loop
+const tickerItems = [...universities, ...universities,
+                     ...universities, ...universities];
+---
+
+<section
+  id="universities"
+  class="relative w-full py-16 md:py-24 overflow-hidden"
+>
+
+  <!-- BG -->
+  <div class="absolute inset-0 bg-brand-green-800/50 pointer-events-none"></div>
+  <div class="absolute top-0 left-0 right-0 h-px
+              bg-gradient-to-r from-transparent via-brand-gold-500/30
+              to-transparent pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px
+              bg-gradient-to-r from-transparent via-brand-gold-500/30
+              to-transparent pointer-events-none"></div>
+
+  <div class="relative z-10">
+
+    <!-- Header -->
+    <div
+      class="section-padding flex flex-col items-center
+             text-center mb-12 md:mb-14"
+    >
+      <span class="section-label" id="ticker-label">
+        Our Students Study At
+      </span>
+      <h2
+        id="ticker-heading"
+        class="section-heading gsap-fade-up max-w-xs sm:max-w-lg
+               md:max-w-xl text-balance"
+      >
+        Universities We've
+        <span class="gold-gradient"> Placed Students In</span>
+      </h2>
+    </div>
+
+    <!-- Ticker Row 1 — scrolls left -->
+    <div
+      class="relative w-full overflow-hidden mb-4"
+      aria-hidden="true"
+    >
+      <!-- Left fade -->
+      <div
+        class="absolute left-0 top-0 bottom-0 w-20 md:w-32 z-10
+               bg-gradient-to-r from-brand-green-800
+               to-transparent pointer-events-none"
+      ></div>
+      <!-- Right fade -->
+      <div
+        class="absolute right-0 top-0 bottom-0 w-20 md:w-32 z-10
+               bg-gradient-to-l from-brand-green-800
+               to-transparent pointer-events-none"
+      ></div>
+
+      <div
+        class="flex gap-4 w-max animate-ticker-left
+               hover:[animation-play-state:paused]"
+      >
+        {tickerItems.map((uni, i) => (
+          <div
+            class="flex-shrink-0 flex items-center gap-3
+                   card-glass rounded-xl px-5 py-3.5
+                   border border-brand-gold-500/15
+                   hover:border-brand-gold-500/40
+                   transition-all duration-300 ease-smooth
+                   cursor-default group"
+          >
+            <span class="text-xl leading-none">{uni.flag}</span>
+            <div class="flex flex-col">
+              <span
+                class="font-heading text-sm text-white/85
+                       font-medium whitespace-nowrap
+                       group-hover:text-brand-gold-300
+                       transition-colors duration-300"
+              >
+                {uni.name}
+              </span>
+              <span
+                class="font-body text-[10px] text-white/35
+                       tracking-widest uppercase"
+              >
+                {uni.country}
+              </span>
+            </div>
+            <!-- Gold dot accent -->
+            <div
+              class="w-1.5 h-1.5 rounded-full bg-brand-gold-500/40
+                     ml-1 group-hover:bg-brand-gold-500
+                     transition-colors duration-300 flex-shrink-0"
+            ></div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Ticker Row 2 — scrolls right -->
+    <div
+      class="relative w-full overflow-hidden"
+      aria-hidden="true"
+    >
+      <!-- Left fade -->
+      <div
+        class="absolute left-0 top-0 bottom-0 w-20 md:w-32 z-10
+               bg-gradient-to-r from-brand-green-800
+               to-transparent pointer-events-none"
+      ></div>
+      <!-- Right fade -->
+      <div
+        class="absolute right-0 top-0 bottom-0 w-20 md:w-32 z-10
+               bg-gradient-to-l from-brand-green-800
+               to-transparent pointer-events-none"
+      ></div>
+
+      <div
+        class="flex gap-4 w-max animate-ticker-right
+               hover:[animation-play-state:paused]"
+      >
+        {[...tickerItems].reverse().map((uni, i) => (
+          <div
+            class="flex-shrink-0 flex items-center gap-3
+                   card-glass rounded-xl px-5 py-3.5
+                   border border-brand-gold-500/15
+                   hover:border-brand-gold-500/40
+                   transition-all duration-300 ease-smooth
+                   cursor-default group"
+          >
+            <span class="text-xl leading-none">{uni.flag}</span>
+            <div class="flex flex-col">
+              <span
+                class="font-heading text-sm text-white/85
+                       font-medium whitespace-nowrap
+                       group-hover:text-brand-gold-300
+                       transition-colors duration-300"
+              >
+                {uni.name}
+              </span>
+              <span
+                class="font-body text-[10px] text-white/35
+                       tracking-widest uppercase"
+              >
+                {uni.country}
+              </span>
+            </div>
+            <div
+              class="w-1.5 h-1.5 rounded-full bg-brand-gold-500/40
+                     ml-1 group-hover:bg-brand-gold-500
+                     transition-colors duration-300 flex-shrink-0"
+            ></div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom note -->
+    <div
+      id="ticker-note"
+      class="section-padding flex justify-center mt-10 md:mt-12"
+    >
+      <p
+        class="gsap-fade-up font-body text-xs text-white/30
+               text-center tracking-wide max-w-xs"
+      >
+        List grows as we place more students.
+        More universities being added.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('#ticker-label', {
+    opacity: 0,
+    y: 20,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#universities',
+      start: 'top 80%',
+    },
+  });
+
+  gsap.from('#ticker-heading', {
+    opacity: 0,
+    y: 40,
+    duration: 0.9,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#ticker-heading',
+      start: 'top 85%',
+    },
+  });
+
+  gsap.from('#ticker-note .gsap-fade-up', {
+    opacity: 0,
+    y: 20,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#ticker-note',
+      start: 'top 90%',
+    },
+  });
+</script>
