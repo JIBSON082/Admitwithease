@@ -1,125 +1,73 @@
 ---
-const logoUrl = "https://res.cloudinary.com/dx3k7hbnc/image/upload/v1780761984/download_1_jmak4w.webp";
-
-const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Destinations', href: '#destinations' },
-  { label: 'Why Us', href: '#why-us' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Contact', href: '#contact' },
-];
 ---
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
+  <div class="relative flex items-center justify-between px-5 sm:px-8 lg:px-12 h-16 sm:h-20">
 
-<!-- NAVBAR -->
-<header
-  id="navbar"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-smooth"
->
-  <nav class="section-padding flex items-center justify-between h-16 md:h-20">
-
-    <!-- LEFT — Hamburger -->
-    <button
-      id="menu-btn"
-      aria-label="Toggle menu"
-      aria-expanded="false"
-      class="relative z-50 flex flex-col justify-center items-center w-10 h-10 gap-[6px] cursor-pointer group"
-    >
-      <span
-        id="line-1"
-        class="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-smooth origin-center"
-      ></span>
-      <span
-        id="line-2"
-        class="block w-6 h-[2px] bg-white rounded-full transition-all duration-300 ease-smooth"
-      ></span>
-      <span
-        id="line-3"
-        class="block w-4 h-[2px] bg-brand-gold-500 rounded-full transition-all duration-300 ease-smooth origin-center group-hover:w-6"
-      ></span>
+    <button id="hamburger" aria-label="Open menu" class="relative z-10 flex flex-col justify-center items-start gap-[5px] w-11 h-11 cursor-pointer">
+      <span id="ham-line1" class="block h-[2px] w-6 bg-white rounded-full origin-center transition-all"></span>
+      <span id="ham-line2" class="block h-[2px] w-6 bg-white rounded-full origin-center transition-all"></span>
+      <span id="ham-line3" class="block h-[2px] w-4 bg-brand-gold-500 rounded-full origin-center transition-all"></span>
     </button>
 
-    <!-- CENTRE — Logo -->
-    <a
-      href="#home"
-      class="absolute left-1/2 -translate-x-1/2 z-50 flex items-center justify-center"
-      aria-label="AdmitWithEase Global — Home"
-    >
+    <a href="#" class="absolute left-1/2 -translate-x-1/2 z-10" aria-label="AdmitWithEase Global">
       <img
-        src={logoUrl}
+        src="https://res.cloudinary.com/dx3k7hbnc/image/upload/v1780761984/download_1_jmak4w.webp"
         alt="AdmitWithEase Global"
-        width="48"
-        height="48"
-        class="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full
-               transition-transform duration-300 ease-smooth hover:scale-105"
+        class="h-10 sm:h-12 w-auto object-contain"
         loading="eager"
         decoding="async"
       />
     </a>
 
-    <!-- RIGHT — CTA -->
-    <a
-      href="#contact"
-      class="btn-primary text-sm px-4 py-2 md:px-6 md:py-2.5"
-    >
-      <span>Apply Now</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="hidden sm:block"
-      >
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
+    <a href="#contact" class="btn-primary text-sm px-4 sm:px-6 py-2 sm:py-3 relative z-10">
+      Apply Now
     </a>
+  </div>
+</nav>
 
-  </nav>
-</header>
+<div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col" style="background:#0a1f13; opacity:0; pointer-events:none;">
+  <div class="flex items-center justify-between px-5 sm:px-8 h-16 sm:h-20 border-b border-brand-gold-500/10">
+    <img
+      src="https://res.cloudinary.com/dx3k7hbnc/image/upload/v1780761984/download_1_jmak4w.webp"
+      alt="AdmitWithEase Global"
+      class="h-10 w-auto object-contain"
+      loading="lazy"
+    />
+    <button id="close-menu" aria-label="Close menu" class="w-11 h-11 flex items-center justify-center">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M2 2L18 18M18 2L2 18" stroke="#c9952a" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
 
-<!-- MOBILE MENU OVERLAY -->
-<div
-  id="mobile-menu"
-  class="fixed inset-0 z-40 flex flex-col items-center justify-center
-         bg-brand-green-900/98 backdrop-blur-md
-         pointer-events-none opacity-0"
-  aria-hidden="true"
->
-  <!-- Decorative gold orb -->
-  <div
-    class="absolute top-1/4 right-1/4 w-64 h-64 rounded-full
-           bg-brand-gold-500/5 blur-3xl pointer-events-none"
-  ></div>
+  <div class="flex-1 flex flex-col justify-center px-8 sm:px-12">
+    <nav class="flex flex-col gap-1">
+      {[
+        { label: 'Home', href: '#' },
+        { label: 'About', href: '#about' },
+        { label: 'Services', href: '#services' },
+        { label: 'Destinations', href: '#destinations' },
+        { label: 'Why Choose Us', href: '#why' },
+        { label: 'Testimonials', href: '#testimonials' },
+        { label: 'Contact', href: '#contact' },
+      ].map((link) => (
+        <a
+          href={link.href}
+          class="nav-link block font-cormorant text-4xl sm:text-5xl font-light text-white hover:text-brand-gold-500 transition-colors duration-300 py-2 border-b border-white/5"
+          style="opacity:0; transform:translateY(20px)"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <div class="mt-10">
+      <a href="#contact" class="btn-primary inline-flex" style="opacity:0">Start Your Application →</a>
+    </div>
+  </div>
 
-  <nav class="flex flex-col items-center gap-8">
-    {navLinks.map((link, i) => (
-      <a
-        href={link.href}
-        data-menu-link
-        data-index={i}
-        class="menu-link font-heading text-fluid-2xl text-white/90
-               hover:text-brand-gold-500 transition-colors duration-300
-               tracking-wide opacity-0 translate-y-8"
-        style={`transition-delay: ${i * 60}ms`}
-      >
-        {link.label}
-      </a>
-    ))}
-  </nav>
-
-  <!-- Bottom contact hint -->
-  <div class="absolute bottom-12 flex items-center gap-3 opacity-0" id="menu-contact-hint">
-    <div class="w-8 h-[1px] bg-brand-gold-500"></div>
-    <span class="font-body text-sm text-white/50 tracking-widest uppercase">
-      +234 814 214 2533
-    </span>
-    <div class="w-8 h-[1px] bg-brand-gold-500"></div>
+  <div class="px-8 sm:px-12 pb-8" style="opacity:0" id="menu-phone">
+    <p class="text-white/40 text-xs font-inter tracking-widest uppercase mb-1">WhatsApp / Call</p>
+    <a href="https://wa.me/2348142142533" class="text-brand-gold-500 font-inter text-base font-medium">+234 814 214 2533</a>
   </div>
 </div>
 
@@ -127,167 +75,79 @@ const navLinks = [
   import { gsap } from 'gsap';
 
   const navbar = document.getElementById('navbar')!;
-  const menuBtn = document.getElementById('menu-btn')!;
+  const hamburger = document.getElementById('hamburger')!;
   const mobileMenu = document.getElementById('mobile-menu')!;
-  const line1 = document.getElementById('line-1')!;
-  const line2 = document.getElementById('line-2')!;
-  const line3 = document.getElementById('line-3')!;
-  const menuLinks = document.querySelectorAll('.menu-link');
-  const menuContactHint = document.getElementById('menu-contact-hint')!;
+  const closeMenu = document.getElementById('close-menu')!;
+  const navLinks = mobileMenu.querySelectorAll<HTMLElement>('.nav-link');
+  const menuApply = mobileMenu.querySelector<HTMLElement>('.btn-primary');
+  const menuPhone = document.getElementById('menu-phone')!;
 
-  let isOpen = false;
-  let isScrolled = false;
+  let menuOpen = false;
+  let scrolled = false;
 
-  // ── Scroll: transparent → solid ──────────────────────────
-  const handleScroll = () => {
-    const scrolled = window.scrollY > 80;
-    if (scrolled !== isScrolled) {
-      isScrolled = scrolled;
-      if (scrolled) {
-        gsap.to(navbar, {
-          backgroundColor: 'rgba(10, 31, 19, 0.97)',
-          backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(201, 149, 42, 0.15)',
-          duration: 0.4,
-          ease: 'power2.out',
-        });
-      } else {
-        gsap.to(navbar, {
-          backgroundColor: 'rgba(0,0,0,0)',
-          backdropFilter: 'blur(0px)',
-          borderBottom: '1px solid rgba(0,0,0,0)',
-          duration: 0.4,
-          ease: 'power2.out',
-        });
+  window.addEventListener('scroll', () => {
+    const past = window.scrollY > 80;
+    if (past !== scrolled) {
+      scrolled = past;
+      gsap.to(navbar, {
+        backgroundColor: past ? 'rgba(10,31,19,0.97)' : 'rgba(10,31,19,0)',
+        borderBottom: past ? '1px solid rgba(201,149,42,0.3)' : '1px solid rgba(201,149,42,0)',
+        duration: 0.4,
+        ease: 'power2.out',
+      });
+    }
+  });
+
+  function openMenu() {
+    menuOpen = true;
+    mobileMenu.style.pointerEvents = 'all';
+    document.body.style.overflow = 'hidden';
+
+    const tl = gsap.timeline();
+    tl.to(mobileMenu, { opacity: 1, duration: 0.3, ease: 'power2.out' })
+      .to(navLinks, { opacity: 1, y: 0, stagger: 0.07, duration: 0.4, ease: 'power3.out' }, '-=0.1')
+      .to(menuApply, { opacity: 1, duration: 0.3, ease: 'power2.out' }, '-=0.2')
+      .to(menuPhone, { opacity: 1, duration: 0.3, ease: 'power2.out' }, '-=0.2');
+
+    gsap.to('#ham-line1', { rotate: 45, y: 7, duration: 0.3, ease: 'power2.out' });
+    gsap.to('#ham-line2', { opacity: 0, duration: 0.2 });
+    gsap.to('#ham-line3', { rotate: -45, y: -7, width: 24, duration: 0.3, ease: 'power2.out' });
+  }
+
+  function closeMenuFn() {
+    menuOpen = false;
+    document.body.style.overflow = '';
+
+    const tl = gsap.timeline();
+    tl.to([...navLinks].reverse(), { opacity: 0, y: -15, stagger: 0.04, duration: 0.25, ease: 'power2.in' })
+      .to(menuApply, { opacity: 0, duration: 0.2 }, '-=0.2')
+      .to(menuPhone, { opacity: 0, duration: 0.2 }, '-=0.2')
+      .to(mobileMenu, { opacity: 0, duration: 0.25, ease: 'power2.in', onComplete: () => {
+        mobileMenu.style.pointerEvents = 'none';
+      }});
+
+    gsap.to('#ham-line1', { rotate: 0, y: 0, duration: 0.3, ease: 'power2.out' });
+    gsap.to('#ham-line2', { opacity: 1, duration: 0.3 });
+    gsap.to('#ham-line3', { rotate: 0, y: 0, width: 16, duration: 0.3, ease: 'power2.out' });
+  }
+
+  hamburger.addEventListener('click', () => menuOpen ? closeMenuFn() : openMenu());
+  closeMenu.addEventListener('click', closeMenuFn);
+  navLinks.forEach(link => link.addEventListener('click', () => {
+    closeMenuFn();
+    const href = link.getAttribute('href')!;
+    if (href && href !== '#') {
+      const target = document.querySelector(href);
+      if (target) {
+        setTimeout(() => {
+          const lenis = (window as any).__lenis;
+          if (lenis) lenis.scrollTo(target);
+        }, 350);
       }
     }
-  };
+  }));
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-
-  // ── Hamburger → X animation ───────────────────────────────
-  const openMenu = () => {
-    isOpen = true;
-    menuBtn.setAttribute('aria-expanded', 'true');
-    mobileMenu.setAttribute('aria-hidden', 'false');
-
-    // Hamburger morphs to X
-    gsap.to(line1, {
-      rotation: 45,
-      y: 8,
-      width: '24px',
-      duration: 0.35,
-      ease: 'power2.inOut',
-    });
-    gsap.to(line2, {
-      opacity: 0,
-      scaleX: 0,
-      duration: 0.2,
-      ease: 'power2.in',
-    });
-    gsap.to(line3, {
-      rotation: -45,
-      y: -8,
-      width: '24px',
-      backgroundColor: '#ffffff',
-      duration: 0.35,
-      ease: 'power2.inOut',
-    });
-
-    // Menu overlay in
-    gsap.to(mobileMenu, {
-      opacity: 1,
-      pointerEvents: 'auto',
-      duration: 0.4,
-      ease: 'power2.out',
-    });
-
-    // Stagger links in
-    gsap.to(menuLinks, {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
-      stagger: 0.07,
-      ease: 'power3.out',
-      delay: 0.15,
-    });
-
-    // Contact hint
-    gsap.to(menuContactHint, {
-      opacity: 1,
-      duration: 0.5,
-      delay: 0.55,
-      ease: 'power2.out',
-    });
-
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeMenu = () => {
-    isOpen = false;
-    menuBtn.setAttribute('aria-expanded', 'false');
-    mobileMenu.setAttribute('aria-hidden', 'true');
-
-    // X morphs back to hamburger
-    gsap.to(line1, {
-      rotation: 0,
-      y: 0,
-      duration: 0.35,
-      ease: 'power2.inOut',
-    });
-    gsap.to(line2, {
-      opacity: 1,
-      scaleX: 1,
-      duration: 0.25,
-      delay: 0.1,
-      ease: 'power2.out',
-    });
-    gsap.to(line3, {
-      rotation: 0,
-      y: 0,
-      width: '16px',
-      backgroundColor: '#c9952a',
-      duration: 0.35,
-      ease: 'power2.inOut',
-    });
-
-    // Menu out
-    gsap.to(menuLinks, {
-      opacity: 0,
-      y: 8,
-      duration: 0.25,
-      stagger: 0.03,
-      ease: 'power2.in',
-    });
-
-    gsap.to(menuContactHint, {
-      opacity: 0,
-      duration: 0.2,
-      ease: 'power2.in',
-    });
-
-    gsap.to(mobileMenu, {
-      opacity: 0,
-      pointerEvents: 'none',
-      duration: 0.35,
-      delay: 0.15,
-      ease: 'power2.in',
-    });
-
-    document.body.style.overflow = '';
-  };
-
-  menuBtn.addEventListener('click', () => {
-    isOpen ? closeMenu() : openMenu();
-  });
-
-  // Close menu when a nav link is clicked
-  menuLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Close on escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && isOpen) closeMenu();
+    if (e.key === 'Escape' && menuOpen) closeMenuFn();
   });
 </script>
