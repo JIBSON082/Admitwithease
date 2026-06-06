@@ -1,1 +1,205 @@
+---
+const services = [
+  {
+    icon: '🏛️',
+    title: 'University Application',
+    description:
+      'We identify the right universities that match your academic profile, career goals, and budget — then handle the full application process on your behalf.',
+  },
+  {
+    icon: '💰',
+    title: 'Tuition & Living Expense Loan',
+    description:
+      'We connect you to trusted financial partners who provide tuition and living expense loans with no collateral and no guarantor required. Study now, pay later.',
+  },
+  {
+    icon: '📋',
+    title: 'Proof of Funds Support',
+    description:
+      'We help you navigate the proof of funds requirement for Canadian universities and UK visa applications legally and efficiently through our financial partner network.',
+  },
+  {
+    icon: '✈️',
+    title: 'Visa Guidance',
+    description:
+      'Step-by-step support through the UK Student Visa and Canadian Study Permit processes — from document preparation to application submission.',
+  },
+  {
+    icon: '✍️',
+    title: 'Personal Statement Support',
+    description:
+      'We craft compelling, authentic personal statements that tell your story and align with what top universities are looking for.',
+  },
+  {
+    icon: '📁',
+    title: 'Documentation Support',
+    description:
+      'From transcripts to reference letters — we guide you on every document needed and help you put together a clean, complete application package.',
+  },
+];
+---
 
+<section
+  id="services"
+  class="relative w-full section-gap overflow-hidden"
+>
+
+  <!-- Top divider -->
+  <div class="absolute top-0 left-0 right-0 h-px
+              bg-gradient-to-r from-transparent via-brand-gold-500/30
+              to-transparent pointer-events-none"></div>
+
+  <!-- Background orb -->
+  <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full
+              bg-brand-gold-500/5 blur-[120px] pointer-events-none"></div>
+
+  <div class="relative z-10 section-padding w-full">
+
+    <!-- Header -->
+    <div class="flex flex-col items-center text-center mb-16 md:mb-20">
+      <span class="section-label" id="services-label">What We Offer</span>
+      <h2
+        id="services-heading"
+        class="section-heading gsap-fade-up max-w-xs sm:max-w-lg
+               md:max-w-2xl text-balance"
+      >
+        Everything You Need to
+        <span class="gold-gradient"> Study Abroad</span>
+        — Under One Roof
+      </h2>
+      <p
+        id="services-sub"
+        class="gsap-fade-up section-subtext mt-4 text-center"
+      >
+        From your first application to your first day on campus —
+        we handle every step with precision and care.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div
+      id="services-grid"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+             gap-5 md:gap-6 max-w-6xl mx-auto"
+    >
+      {services.map((service, i) => (
+        <div
+          class="service-card gsap-fade-up card-glass rounded-2xl p-6 md:p-7
+                 group cursor-default relative overflow-hidden
+                 transition-all duration-500 ease-smooth
+                 hover:border-brand-gold-500/40
+                 hover:bg-white/[0.06]"
+          data-index={i}
+        >
+          <!-- Hover glow -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100
+                      transition-opacity duration-500
+                      bg-gradient-to-br from-brand-gold-500/5 to-transparent
+                      rounded-2xl pointer-events-none"></div>
+
+          <!-- Icon -->
+          <div
+            class="relative z-10 w-12 h-12 rounded-xl mb-5
+                   bg-brand-gold-500/10 border border-brand-gold-500/20
+                   flex items-center justify-center text-2xl
+                   transition-transform duration-300
+                   group-hover:scale-110 group-hover:border-brand-gold-500/50"
+          >
+            {service.icon}
+          </div>
+
+          <!-- Content -->
+          <div class="relative z-10">
+            <h3
+              class="font-heading text-fluid-lg text-white font-semibold
+                     mb-3 leading-snug group-hover:text-brand-gold-300
+                     transition-colors duration-300"
+            >
+              {service.title}
+            </h3>
+            <p class="font-body text-sm text-white/60 leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+
+          <!-- Bottom accent line -->
+          <div
+            class="absolute bottom-0 left-0 h-[2px] w-0
+                   bg-gradient-to-r from-brand-gold-500 to-brand-gold-300
+                   group-hover:w-full transition-all duration-500
+                   ease-smooth rounded-b-2xl"
+          ></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div
+      id="services-cta"
+      class="gsap-fade-up flex justify-center mt-14 md:mt-16"
+    >
+      <a href="#contact" class="btn-primary">
+        Start Your Journey
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('#services-label', {
+    opacity: 0,
+    y: 20,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#services',
+      start: 'top 80%',
+    },
+  });
+
+  gsap.from('#services-heading, #services-sub', {
+    opacity: 0,
+    y: 40,
+    duration: 0.9,
+    stagger: 0.15,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#services-heading',
+      start: 'top 85%',
+    },
+  });
+
+  gsap.from('.service-card', {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#services-grid',
+      start: 'top 80%',
+    },
+  });
+
+  gsap.from('#services-cta', {
+    opacity: 0,
+    y: 30,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#services-cta',
+      start: 'top 90%',
+    },
+  });
+</script>
