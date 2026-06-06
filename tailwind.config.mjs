@@ -1,48 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       colors: {
         brand: {
-          green: {
-            900: '#0a1f13',
-            800: '#0d2b1a',
-            700: '#134023',
-            600: '#1a5c30',
-            500: '#1e6b38',
-          },
-          gold: {
-            500: '#c9952a',
-            400: '#d4a843',
-            300: '#e2c06a',
-            200: '#f0d898',
-          },
-        },
+          'green-900': '#0a1f13',
+          'green-800': '#0d2b1a',
+          'green-700': '#134023',
+          'gold-300': '#e2c06a',
+          'gold-400': '#d4a843',
+          'gold-500': '#c9952a',
+        }
       },
       fontFamily: {
-        heading: ['Cormorant Garamond', 'Georgia', 'serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
-        script: ['Dancing Script', 'cursive'],
-      },
-      fontSize: {
-        'fluid-sm': 'clamp(0.875rem, 2vw, 1rem)',
-        'fluid-base': 'clamp(1rem, 2.5vw, 1.125rem)',
-        'fluid-lg': 'clamp(1.125rem, 3vw, 1.5rem)',
-        'fluid-xl': 'clamp(1.5rem, 4vw, 2rem)',
-        'fluid-2xl': 'clamp(2rem, 5vw, 3rem)',
-        'fluid-3xl': 'clamp(2.5rem, 7vw, 4.5rem)',
-        'fluid-4xl': 'clamp(3rem, 9vw, 6rem)',
-      },
-      spacing: {
-        'section': 'clamp(4rem, 10vw, 8rem)',
-      },
-      transitionTimingFunction: {
-        'smooth': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        cormorant: ['Cormorant Garamond', 'Georgia', 'serif'],
+        inter: ['Inter', 'sans-serif'],
+        dancing: ['Dancing Script', 'cursive'],
       },
       animation: {
         'ticker-left': 'tickerLeft 30s linear infinite',
         'ticker-right': 'tickerRight 30s linear infinite',
+        'ping-gold': 'pingGold 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'bounce-slow': 'bounceSlow 2s ease-in-out infinite',
       },
       keyframes: {
         tickerLeft: {
@@ -53,8 +33,19 @@ export default {
           '0%': { transform: 'translateX(-50%)' },
           '100%': { transform: 'translateX(0)' },
         },
+        pingGold: {
+          '75%, 100%': { transform: 'scale(2)', opacity: '0' },
+        },
+        bounceSlow: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(10px)' },
+        }
       },
+      backgroundImage: {
+        'gold-gradient': 'linear-gradient(135deg, #c9952a, #e2c06a, #c9952a)',
+        'hero-radial': 'radial-gradient(ellipse at 70% 50%, #134023 0%, #0d2b1a 40%, #0a1f13 100%)',
+      }
     },
   },
   plugins: [],
-};
+}
