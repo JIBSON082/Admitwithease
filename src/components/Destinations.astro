@@ -1,1 +1,276 @@
+---
+const destinations = [
+  {
+    id: 'uk',
+    flag: '🇬🇧',
+    country: 'United Kingdom',
+    headline: 'Study in the UK',
+    tag: 'Master\'s Programs Only',
+    color: 'from-[#012169]/40 to-brand-green-900/80',
+    borderColor: 'border-[#012169]/40',
+    accentColor: 'bg-[#C8102E]',
+    highlights: [
+      { icon: '🎓', text: 'Top-ranked UK universities' },
+      { icon: '💷', text: 'Tuition deposit from £3,000' },
+      { icon: '📋', text: 'Full application support' },
+      { icon: '✈️', text: 'UK Student Visa guidance' },
+    ],
+    cta: 'Apply for UK',
+    stat: '£3,000',
+    statLabel: 'Minimum deposit',
+  },
+  {
+    id: 'canada',
+    flag: '🇨🇦',
+    country: 'Canada',
+    headline: 'Study in Canada',
+    tag: 'Master\'s Programs Only',
+    color: 'from-[#FF0000]/20 to-brand-green-900/80',
+    borderColor: 'border-[#FF0000]/20',
+    accentColor: 'bg-[#FF0000]',
+    highlights: [
+      { icon: '🎓', text: 'Premier Canadian universities' },
+      { icon: '💰', text: 'Tuition loan support available' },
+      { icon: '📋', text: 'Proof of funds assistance' },
+      { icon: '✈️', text: 'Study Permit guidance' },
+    ],
+    cta: 'Apply for Canada',
+    stat: '0',
+    statLabel: 'Collateral required',
+  },
+];
+---
 
+<section
+  id="destinations"
+  class="relative w-full section-gap overflow-hidden"
+>
+
+  <!-- Dividers -->
+  <div class="absolute top-0 left-0 right-0 h-px
+              bg-gradient-to-r from-transparent via-brand-gold-500/30
+              to-transparent pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px
+              bg-gradient-to-r from-transparent via-brand-gold-500/30
+              to-transparent pointer-events-none"></div>
+
+  <!-- BG -->
+  <div class="absolute inset-0 bg-brand-green-900/60 pointer-events-none"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+              w-[600px] h-[600px] rounded-full
+              bg-brand-gold-500/5 blur-[150px] pointer-events-none"></div>
+
+  <div class="relative z-10 section-padding w-full">
+
+    <!-- Header -->
+    <div class="flex flex-col items-center text-center mb-16 md:mb-20">
+      <span class="section-label" id="dest-label">Where You're Going</span>
+      <h2
+        id="dest-heading"
+        class="section-heading gsap-fade-up max-w-xs sm:max-w-lg
+               md:max-w-2xl text-balance"
+      >
+        Choose Your
+        <span class="gold-gradient"> Destination</span>
+      </h2>
+      <p
+        id="dest-sub"
+        class="gsap-fade-up section-subtext mt-4 text-center"
+      >
+        Two world-class destinations. One trusted partner.
+        Both with full tuition loan support.
+      </p>
+    </div>
+
+    <!-- Destination Cards -->
+    <div
+      id="dest-grid"
+      class="grid grid-cols-1 lg:grid-cols-2
+             gap-6 md:gap-8 max-w-5xl mx-auto"
+    >
+      {destinations.map((dest, i) => (
+        <div
+          class={`dest-card gsap-fade-up relative rounded-3xl overflow-hidden
+                  border ${dest.borderColor}
+                  bg-gradient-to-br ${dest.color}
+                  backdrop-blur-sm group
+                  transition-all duration-500 ease-smooth
+                  hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]`}
+          data-index={i}
+        >
+
+          <!-- Top section -->
+          <div class="relative p-7 md:p-9 pb-6">
+
+            <!-- Tag -->
+            <div class="inline-flex items-center gap-2 mb-6">
+              <div class={`w-2 h-2 rounded-full ${dest.accentColor}`}></div>
+              <span class="font-body text-xs text-white/60
+                           tracking-[0.18em] uppercase font-medium">
+                {dest.tag}
+              </span>
+            </div>
+
+            <!-- Flag + Headline -->
+            <div class="flex items-center gap-4 mb-6">
+              <span
+                class="text-6xl md:text-7xl leading-none
+                       transition-transform duration-500
+                       group-hover:scale-110"
+              >
+                {dest.flag}
+              </span>
+              <div>
+                <h3
+                  class="font-heading text-fluid-2xl text-white
+                         font-semibold leading-tight"
+                >
+                  {dest.headline}
+                </h3>
+                <p class="font-body text-sm text-white/50 mt-1">
+                  {dest.country}
+                </p>
+              </div>
+            </div>
+
+            <!-- Stat highlight -->
+            <div
+              class="inline-flex items-center gap-3 card-glass
+                     rounded-full px-5 py-2.5 mb-7"
+            >
+              <span class="font-heading text-fluid-xl text-brand-gold-400
+                           font-semibold">
+                {dest.stat}
+              </span>
+              <span class="font-body text-xs text-white/60">
+                {dest.statLabel}
+              </span>
+            </div>
+
+            <!-- Highlights list -->
+            <ul class="flex flex-col gap-3">
+              {dest.highlights.map((item) => (
+                <li class="flex items-center gap-3">
+                  <div
+                    class="w-8 h-8 rounded-lg flex-shrink-0
+                           bg-brand-gold-500/10 border border-brand-gold-500/20
+                           flex items-center justify-center text-sm"
+                  >
+                    {item.icon}
+                  </div>
+                  <span class="font-body text-sm text-white/75">
+                    {item.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+          </div>
+
+          <!-- Bottom CTA -->
+          <div
+            class="px-7 md:px-9 pb-7 md:pb-9 pt-2"
+          >
+            <a
+              href="#contact"
+              class="btn-primary w-full justify-center text-sm"
+            >
+              {dest.cta}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Decorative corner glow -->
+          <div
+            class="absolute -bottom-10 -right-10 w-40 h-40
+                   rounded-full bg-brand-gold-500/8 blur-2xl
+                   opacity-0 group-hover:opacity-100
+                   transition-opacity duration-500 pointer-events-none"
+          ></div>
+
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom note -->
+    <div
+      id="dest-note"
+      class="gsap-fade-up flex items-center justify-center
+             gap-3 mt-12 md:mt-14"
+    >
+      <div class="w-12 h-px bg-brand-gold-500/30"></div>
+      <p class="font-body text-xs text-white/40 text-center
+                tracking-wide max-w-xs">
+        Both destinations — strictly Master's programs only.
+        Tuition loan available for all applicants.
+      </p>
+      <div class="w-12 h-px bg-brand-gold-500/30"></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('#dest-label', {
+    opacity: 0,
+    y: 20,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#destinations',
+      start: 'top 80%',
+    },
+  });
+
+  gsap.from('#dest-heading, #dest-sub', {
+    opacity: 0,
+    y: 40,
+    duration: 0.9,
+    stagger: 0.15,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#dest-heading',
+      start: 'top 85%',
+    },
+  });
+
+  gsap.from('.dest-card', {
+    opacity: 0,
+    y: 60,
+    duration: 0.9,
+    stagger: 0.2,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#dest-grid',
+      start: 'top 80%',
+    },
+  });
+
+  gsap.from('#dest-note', {
+    opacity: 0,
+    y: 25,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#dest-note',
+      start: 'top 90%',
+    },
+  });
+</script>
