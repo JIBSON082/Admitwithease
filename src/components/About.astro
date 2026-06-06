@@ -1,1 +1,259 @@
+---
+---
 
+<section
+  id="about"
+  class="relative w-full section-gap overflow-hidden"
+>
+
+  <!-- Background subtle texture -->
+  <div class="absolute inset-0 bg-brand-green-800/40 pointer-events-none"></div>
+  <div class="absolute top-0 left-0 right-0 h-px
+              bg-gradient-to-r from-transparent via-brand-gold-500/30
+              to-transparent pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px
+              bg-gradient-to-r from-transparent via-brand-gold-500/30
+              to-transparent pointer-events-none"></div>
+
+  <div class="relative z-10 section-padding w-full">
+
+    <!-- Top label -->
+    <div class="flex flex-col items-center text-center mb-16 md:mb-20">
+      <span class="section-label" id="about-label">Who We Are</span>
+      <h2
+        id="about-heading"
+        class="section-heading gsap-fade-up max-w-xs sm:max-w-lg
+               md:max-w-2xl text-balance"
+      >
+        We Exist to Make
+        <span class="gold-gradient"> Study Abroad</span>
+        <br class="hidden md:block" /> Possible for Every
+        Ambitious Student
+      </h2>
+    </div>
+
+    <!-- Two column layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20
+                items-center max-w-6xl mx-auto">
+
+      <!-- LEFT — Story text -->
+      <div class="flex flex-col gap-6" id="about-text">
+
+        <p class="gsap-fade-up section-subtext">
+          At <span class="text-brand-gold-400 font-semibold">AdmitWithEase Global</span>,
+          we believe that financial constraints should never be a barrier
+          to world-class education.
+        </p>
+
+        <p class="gsap-fade-up section-subtext">
+          We are a specialist study abroad consultancy, dedicated exclusively
+          to helping Nigerian students gain
+          <span class="text-white font-medium">Master's admission</span>
+          into top universities in the
+          <span class="text-white font-medium">United Kingdom</span> and
+          <span class="text-white font-medium">Canada</span>.
+        </p>
+
+        <p class="gsap-fade-up section-subtext">
+          We don't just process applications. We walk with you from your
+          very first inquiry all the way to your arrival — application,
+          funding, visa, and everything in between. Every student is
+          treated like
+          <span class="text-brand-gold-400 font-medium">family</span>.
+        </p>
+
+        <!-- Mission statement -->
+        <div
+          class="gsap-fade-up relative mt-2 pl-5
+                 border-l-2 border-brand-gold-500"
+        >
+          <p class="font-heading text-fluid-lg text-white/90 italic leading-relaxed">
+            "Your future is waiting.
+            <span class="text-brand-gold-400"> We'll help you get there."</span>
+          </p>
+        </div>
+
+        <!-- CTA -->
+        <div class="gsap-fade-up mt-2">
+          <a href="#services" class="btn-primary self-start">
+            Explore Our Services
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT — Cards + visual -->
+      <div class="flex flex-col gap-5" id="about-cards">
+
+        <!-- Study Now Pay Later card — hero card -->
+        <div
+          class="gsap-fade-up relative card-glass rounded-2xl p-6 md:p-8
+                 overflow-hidden group"
+        >
+          <!-- Gold glow -->
+          <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full
+                      bg-brand-gold-500/10 blur-2xl
+                      group-hover:bg-brand-gold-500/20
+                      transition-all duration-500"></div>
+
+          <div class="relative z-10 flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl
+                        bg-brand-gold-500/15 border border-brand-gold-500/30
+                        flex items-center justify-center text-2xl">
+              💰
+            </div>
+            <div>
+              <h3 class="font-heading text-fluid-lg text-white font-semibold mb-1">
+                Study Now, Pay Later
+              </h3>
+              <p class="font-body text-sm text-white/60 leading-relaxed">
+                Our tuition loan partnerships require
+                <span class="text-brand-gold-400 font-medium">
+                  no collateral and no guarantor
+                </span>.
+                Your ambition is enough.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two smaller cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+          <!-- Masters Only -->
+          <div
+            class="gsap-fade-up card-glass rounded-2xl p-5
+                   group hover:border-brand-gold-500/30
+                   transition-all duration-300"
+          >
+            <div class="w-10 h-10 rounded-lg
+                        bg-brand-gold-500/10 border border-brand-gold-500/20
+                        flex items-center justify-center text-xl mb-3">
+              🎓
+            </div>
+            <h4 class="font-heading text-base text-white font-semibold mb-1">
+              Master's Specialists
+            </h4>
+            <p class="font-body text-xs text-white/55 leading-relaxed">
+              Exclusively focused on postgraduate programs in the UK & Canada.
+            </p>
+          </div>
+
+          <!-- End to end -->
+          <div
+            class="gsap-fade-up card-glass rounded-2xl p-5
+                   group hover:border-brand-gold-500/30
+                   transition-all duration-300"
+          >
+            <div class="w-10 h-10 rounded-lg
+                        bg-brand-gold-500/10 border border-brand-gold-500/20
+                        flex items-center justify-center text-xl mb-3">
+              🤝
+            </div>
+            <h4 class="font-heading text-base text-white font-semibold mb-1">
+              End-to-End Support
+            </h4>
+            <p class="font-body text-xs text-white/55 leading-relaxed">
+              Application to arrival — we are with you every single step.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- UK + Canada flags row -->
+        <div
+          class="gsap-fade-up card-glass rounded-2xl p-5
+                 flex items-center justify-around"
+        >
+          <div class="flex flex-col items-center gap-2">
+            <span class="text-4xl">🇬🇧</span>
+            <span class="font-body text-xs text-white/60 tracking-widest uppercase">
+              United Kingdom
+            </span>
+          </div>
+          <div class="w-px h-12 bg-brand-gold-500/20"></div>
+          <div class="flex flex-col items-center gap-2">
+            <span class="font-script text-brand-gold-500 text-lg">
+              Masters Only
+            </span>
+            <div class="flex gap-1">
+              {[...Array(3)].map(() => (
+                <div class="w-1 h-1 rounded-full bg-brand-gold-500/60"></div>
+              ))}
+            </div>
+          </div>
+          <div class="w-px h-12 bg-brand-gold-500/20"></div>
+          <div class="flex flex-col items-center gap-2">
+            <span class="text-4xl">🇨🇦</span>
+            <span class="font-body text-xs text-white/60 tracking-widest uppercase">
+              Canada
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Section label
+  gsap.from('#about-label', {
+    opacity: 0,
+    y: 20,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#about',
+      start: 'top 80%',
+    },
+  });
+
+  // Heading
+  gsap.from('#about-heading', {
+    opacity: 0,
+    y: 40,
+    duration: 0.9,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#about-heading',
+      start: 'top 85%',
+    },
+  });
+
+  // Left text paragraphs stagger
+  gsap.from('#about-text .gsap-fade-up', {
+    opacity: 0,
+    y: 35,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#about-text',
+      start: 'top 80%',
+    },
+  });
+
+  // Right cards stagger
+  gsap.from('#about-cards .gsap-fade-up', {
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    stagger: 0.12,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#about-cards',
+      start: 'top 80%',
+    },
+  });
+</script>
